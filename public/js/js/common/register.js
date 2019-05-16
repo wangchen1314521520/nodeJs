@@ -55,6 +55,23 @@ Register.prototype = {
         var username = this.divDoms.find("#sign-register-username").val();
         var password = this.divDoms.find("#sign-register-password").val();
 
-        console.log(username,password);
+        $.ajax({
+            type:"post",
+            url:"/users/register",
+            data:{
+                username,
+                password
+            },
+            success:this.handdleRegisterSucc.bind(this)
+        });
+    },
+    handdleRegisterSucc(data){
+        if(data.state){
+            alert("注册成功");
+            new Page().createContent(true); 
+        }else{
+            alert("注册失败，请重新注册");
+        }
+        console.log(data);
     }
 }
