@@ -3,9 +3,9 @@ const userModel = require("../model/user")
 //1.引入node的核心模块
 const crypto = require("crypto");
 //引入jsonwebtoken
-const jwt = require("jsonwebtoken");
+// const jwt = require("jsonwebtoken");
 
-
+const utils = require("../utils/token");
 const register = (req,res)=>{
     //获取用户名和密码
     const {username,password} = req.body;
@@ -53,20 +53,10 @@ const login = (req,res)=>{
             // console.log(hash.digest('hex'));
 
             if(result.password == hash.digest('hex')){
-            const token =   jwt.sign(
-                  {
-                      //信息
-                     user: username
-                  }, 
-                     //   密钥
-                  '1901', 
-                  { 
-                    // 过期时间
-                      expiresIn: 60 * 60 
-                  }
-             );
 
-             res.cookie("token",token);
+                const token  = utils.createToken({user:username},"1901");
+                res.cookie("token",token);
+                res.cookie("user",username);
 
                 res.json({
                     state:true,

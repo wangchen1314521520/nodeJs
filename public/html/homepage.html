@@ -8,7 +8,9 @@
     <title>首页</title>
     <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../css/detail.css">
 </head>
 
 <body>
@@ -36,16 +38,36 @@
                     <button type="submit" class="btn btn-default">Submit</button>
                 </form>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">未登录</a></li>
-                    <li><a href="#">退出</a></li>
+                    <li><a id="username" href="#">未登录</a></li>
+                    <li><a id="loginout" href="#">退出</a></li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container-fluid -->
     </nav>
+
+    <div class="container_detail">
+        <div class="tabbar">
+            <ul>
+                <li class="active">系统首页</li>
+                <li>职位列表</li>
+                <li>职位管理</li>
+            </ul>
+        </div>
+        <div class="content">
+                <div id="jobHome"><h2>首页</h2></div>
+                <div id="addJob"></div>
+                <div id="jobList"></div>
+        </div>
+    </div>
 </body>
 </html>
 <script src="../js/lib/jquery-1.10.2.min.js"></script>
 <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+<script src="https://cdn.bootcss.com/js-cookie/2.1.3/js.cookie.min.js"></script>
+<script src="../js/js/home/jobList.js"></script>
+<script src="../js/js/home/addjob.js"></script>
+<script src="../js/js/home/userInfo.js"></script>
+<script src="../js/js/home/page.js"></script>
